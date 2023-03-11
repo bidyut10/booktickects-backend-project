@@ -57,4 +57,4 @@ const tickectSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Tickects", tickectSchema);
+module.exports = mongoose.model("Tickect", tickectSchema);

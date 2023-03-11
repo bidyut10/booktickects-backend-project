@@ -173,7 +173,6 @@ const loginUser = async function (req:express.Request, res:express.Response) {
       });
     }
     
-    //checking req body password and DB's decryptPassword is same or not using "bcrypt package"
     const decrypPassword = user.password;
     const pass = await bcrypt.compare(password, decrypPassword);
     if (!pass) {
@@ -184,11 +183,12 @@ const loginUser = async function (req:express.Request, res:express.Response) {
 
     
     const scrtCode: string = "5^8LydB!mso^o!Yx";
+    const projectdetails:string="ticket=Management@backend-apis"
 
-    let token = jwt.sign(
+    const token = jwt.sign(
       {
         userId: user._id.toString(),
-        project: "ticket=Management@backend-apis",
+        project: projectdetails,
         iat: Math.floor(Date.now() / 1000),
         exp: Math.floor(Date.now() / 1000) + 10 * 60 * 60,
       },

@@ -2,6 +2,7 @@ import express from 'express'
 const router = express.Router();
 const userController = require("../controller/userController");
 const ticketsController = require("../controller/ticketsController");
+const orderController = require("../controller/orderController");
 const auth = require("../authentication/auth")
 
 
@@ -12,6 +13,8 @@ router.get("/alltickets/:userID", auth.Authentication, userController.availableT
 
 router.post("/createticket", auth.Authentication, ticketsController.createTicket);
 router.get("/myticket/:sellerID", auth.Authentication, ticketsController.availableTickets);
+
+router.post("/createorder", auth.Authentication, orderController.createOrder);
 
 
 
